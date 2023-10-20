@@ -1,11 +1,13 @@
-import { Account } from "./pages/account";
+import { HashRouter } from "react-router-dom";
 
-function App() {
+import { Router } from "./routes";
+
+const App = () => {
   return (
-    <div>
-      <Account />
-    </div>
+    <HashRouter>
+      <Router />
+    </HashRouter>
   );
-}
+};
 
 export default App;

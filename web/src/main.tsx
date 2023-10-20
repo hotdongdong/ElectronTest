@@ -1,18 +1,11 @@
-import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./app.tsx";
 import "./index.css";
+import App from "./app";
 
-ReactDOM.createRoot(document.getElementById("root")!).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+const container = document.getElementById("root");
 
-// Remove Preload scripts loading
-postMessage({ payload: "removeLoading" }, "*");
+if (container) {
+  const root = ReactDOM.createRoot(container);
 
-// Use contextBridge
-window.ipcRenderer.on("main-process-message", (_event, message) => {
-  console.log(message);
-});
+  root.render(<App />);
+}
